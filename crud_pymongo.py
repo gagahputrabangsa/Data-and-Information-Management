@@ -50,3 +50,15 @@ def update_data():
             print("Pilihan tidak valid.")
     else:
         print("Data tidak ditemukan.")
+def hapus_data():
+    nama = input("Masukkan produk yang ingin dihapus: ")
+    result = collection.find_one({"nama": nama})
+    if result:
+        confirm = input(f"Apakah Anda yakin ingin menghapus data {result['nama']}? (y/n): ")
+        if confirm.lower() == 'y':
+            collection.delete_one({"nama": nama})
+            print("Data berhasil dihapus.")
+        else:
+            print("Penghapusan dibatalkan.")
+    else:
+        print("Data tidak ditemukan.")
