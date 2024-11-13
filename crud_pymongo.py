@@ -62,3 +62,28 @@ def hapus_data():
             print("Penghapusan dibatalkan.")
     else:
         print("Data tidak ditemukan.")
+def menu():
+    while True:
+        print("\nMenu:")
+        print("1. Tambah Data")
+        print("2. Cari Data Berdasarkan Nama")
+        print("3. Update Data Berdasarkan Nama")
+        print("4. Hapus Data Berdasarkan Nama")
+        print("5. Keluar")
+        
+        pilihan = input("Pilih opsi (1/2/3/4/5): ")
+        
+        if pilihan == '1':
+            tambah_data()
+        elif pilihan == '2':
+            cari_data()
+        elif pilihan == '3':
+            update_data()
+        elif pilihan == '4':
+            hapus_data()
+        elif pilihan == '5':
+            print("Keluar dari program.")
+            break
+        else:
+            print("Pilihan tidak valid. Silakan coba lagi.")
+menu()
