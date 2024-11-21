@@ -23,6 +23,23 @@ def update_data():
         print("Negara:", result['negara'])
 
         pilihan = input("Apakah Anda ingin mengupdate: \n(1) Nama\n(2) Harga\n(3) Negara\nPilih (1/2/3): ")
+        
+        if pilihan == '1':
+            new_nama = input("Masukkan nama baru: ")
+            collection.update_one({"nama": nama}, {"$set": {"nama": new_nama}})
+            print("Nama berhasil diupdate.")
+        elif pilihan == '2':
+            new_harga = input("Masukkan Harga baru: ")
+            collection.update_one({"nama": nama}, {"$set": {"harga": new_harga}})
+            print("Harga berhasil diupdate.")
+        elif pilihan == '3':
+            new_negara = input("Masukkan negara baru: ")
+            collection.update_one({"nama": nama}, {"$set": {"negara": new_negara}})
+            print("negara berhasil diupdate.")
+        else:
+            print("Pilihan tidak valid.")
+    else:
+        print("Data tidak ditemukan.")
 def cari_data():
     nama = input("Masukkan produk yang dicari: ")
     result = collection.find_one({"nama": nama})
