@@ -20,3 +20,6 @@ def find_friends(tx, person_name):
     """, name=person_name)
     for record in result:
         print(f"Friend of {person_name}: {record['friend_name']}")
+
+with driver.session() as session:
+    session.read_transaction(find_friends, "Alice")
