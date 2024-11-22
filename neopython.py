@@ -11,3 +11,12 @@ def create_person(tx, name):
 
 with driver.session() as session:
     session.write_transaction(create_person, "Alice")
+
+#if you want to make more complex query, you can try with this:
+def find_friends(tx, person_name):
+    result = tx.run("""
+        MATCH (p:Person {name: $name})-[:KNOWS]->(friend)
+        RETURN friend.name AS friend_name
+    """, name=person_name)
+    for record in result:
+        print(f"Friend of {person_name}: {record['friend_name']}")
