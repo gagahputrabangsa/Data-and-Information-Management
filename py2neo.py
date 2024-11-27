@@ -18,7 +18,7 @@ nodes = graph.run("MATCH (p:Person) RETURN p.name AS name, p.age AS age").data()
 for node in nodes:
     print(f"Name: {node['name']}, Age: {node['age']}")
 
-# Mengupdate properti node
+# Updating node
 graph.run("MATCH (p:Person {name: 'Gaga'}) SET p.age = 32")
 print("Node berhasil diperbarui!")
 
@@ -27,7 +27,7 @@ graph.run("MATCH (p:Person {name: 'Reza'}) DELETE p")
 print("Node berhasil dihapus!")
 
 
-#twi way relation
+#create bi-relation
 
 graph.run("""
     MATCH (a:Person {name: 'Gaga'}), (b:Person {name: 'Afni'})
