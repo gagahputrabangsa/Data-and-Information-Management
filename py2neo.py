@@ -18,3 +18,7 @@ nodes = graph.run("MATCH (p:Person) RETURN p.name AS name, p.age AS age").data()
 for node in nodes:
     print(f"Name: {node['name']}, Age: {node['age']}")
 
+# Mengupdate properti node
+graph.run("MATCH (p:Person {name: 'Gaga'}) SET p.age = 32")
+print("Node berhasil diperbarui!")
+
