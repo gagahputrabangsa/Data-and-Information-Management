@@ -27,4 +27,10 @@ graph.run("MATCH (p:Person {name: 'Reza'}) DELETE p")
 print("Node berhasil dihapus!")
 
 
+#twi way relation
 
+graph.run("""
+    MATCH (a:Person {name: 'Gaga'}), (b:Person {name: 'Afni'})
+    CREATE (a)-[:FRIEND]->(b), (b)-[:FRIEND]->(a)
+""")
+print("Relasi dua arah 'friend' berhasil dibuat")
