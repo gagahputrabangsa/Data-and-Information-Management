@@ -1,7 +1,7 @@
 from py2neo import Graph
 
 # Conn
-graph = Graph("bolt://localhost:7687", auth=("neo4j", "ur_pass"))
+graph = Graph("bolt://localhost:7777", auth=("neo4j", "ur_pass")) #use ur bolt port for replacing 7777
 
 # Create
 graph.run("CREATE (p:Person {name: 'Reza', age: 18})")
