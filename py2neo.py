@@ -11,3 +11,10 @@ graph.run("CREATE (p:Person {name: 'Arief', age: 25})")
 graph.run("CREATE (p:Person {name: 'Made', age: 31})")
 print("Node created!")
 
+# Read node (Person)
+nodes = graph.run("MATCH (p:Person) RETURN p.name AS name, p.age AS age").data()
+
+# Showing result
+for node in nodes:
+    print(f"Name: {node['name']}, Age: {node['age']}")
+
