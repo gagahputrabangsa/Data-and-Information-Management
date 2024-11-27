@@ -22,3 +22,9 @@ for node in nodes:
 graph.run("MATCH (p:Person {name: 'Gaga'}) SET p.age = 32")
 print("Node berhasil diperbarui!")
 
+#delete
+graph.run("MATCH (p:Person {name: 'Reza'}) DELETE p")
+print("Node berhasil dihapus!")
+
+
+
