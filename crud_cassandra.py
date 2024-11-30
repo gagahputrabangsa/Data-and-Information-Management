@@ -37,3 +37,7 @@ if row:
     print(f"Name: {row.name}, Email: {row.email}")
 else:
     print("User not found")
+# Update data
+session.execute("""
+UPDATE users SET name=%s, age=%s WHERE id=%s
+""", ('Jane Doe', 25, some_uuid))
