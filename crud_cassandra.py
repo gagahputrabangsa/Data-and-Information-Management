@@ -41,3 +41,9 @@ else:
 session.execute("""
 UPDATE users SET name=%s, age=%s WHERE id=%s
 """, ('Jane Doe', 25, some_uuid))
+# delete based on id
+
+session.execute("DELETE FROM users WHERE id=%s", [some_uuid])
+
+#delete all
+session.execute("TRUNCATE users")
